@@ -48,13 +48,30 @@
       "hooks": [
         {
           "type": "command",
-          "command": "input=$(cat); if echo \"$input\" | grep -q '\"notification_type\":\"permission_prompt\"'; then afplay /System/Library/Sounds/Funk.aiff; osascript -e 'tell application \"System Events\" to set frontApp to name of first application process whose frontmost is true' -e 'if frontApp is not in {\"Terminal\", \"Code\"} then display notification \"Claude 需要你的注意\" with title \"Claude Code\"'; fi"
+          "command": "input=$(cat); if echo \"$input\" | grep -q '\"notification_type\":\"permission_prompt\"'; then afplay /System/Library/Sounds/Funk.aiff -v 5; osascript -e 'tell application \"System Events\" to set frontApp to name of first application process whose frontmost is true' -e 'if frontApp is not in {\"Terminal\", \"Code\"} then display notification \"Claude 需要你的注意\" with title \"Claude Code\"'; fi"
         }
       ]
     }
   ]
 }
 ```
+
+---
+
+## 調整提醒音效大小
+
+`afplay` 支援 `-v` 參數設定音量倍數，預設為 `1.0`（跟著系統媒體音量走）：
+
+上方設定檔使用 `-v 5`，實測比較好辨識。可自行調整：
+
+| `-v` 值 | 效果 |
+|---------|------|
+| 不加 `-v` | 完全依賴系統媒體音量 |
+| `1.5` | 放大 1.5 倍 |
+| `2.0` | 放大 2 倍 |
+| `5` | 明顯大聲，實測比較好辨識（推薦、目前設定） |
+
+修改指令中的數字即可，例如：`afplay /System/Library/Sounds/Funk.aiff -v 2`。
 
 ---
 
