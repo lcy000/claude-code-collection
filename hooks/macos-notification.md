@@ -1,4 +1,4 @@
-# macOS Notification Hooks
+# Claude Code macOS Notification Hooks
 
 兩個 hooks 設定，偵測使用者是否正在看著 Claude Code：
 - **權限請求提醒**：有提示音 + 通知

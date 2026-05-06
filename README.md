@@ -8,7 +8,9 @@
 
 ## 內容
 
-### [Hooks — macOS 提醒通知](hooks/macos-notification.md)
+### Hooks — macOS 提醒通知
+
+#### [Claude Code 版](hooks/macos-notification.md)
 
 自製的兩個 hooks，偵測使用者是否正在看著 Claude Code：
 
@@ -16,6 +18,15 @@
 - 完成時發出靜音通知
 
 適合常常讓 Claude 在背景執行任務、自己切去其他視窗或軟體工作的情境。
+
+#### [Codex 版](hooks/codex-macos-notification.md)
+
+移植到 Codex 的 macOS hooks 設定：
+
+- 權限請求時發出提示音與通知
+- 完成時發出靜音通知
+
+Codex 的 `PermissionRequest` 會在權限 UI 顯示前觸發，所以提示音會比畫面上的權限詢問更早出現。
 
 ---
 
